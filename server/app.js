@@ -1,9 +1,12 @@
 import express from "express";
 import cors from "cors";
 import productRouter from "./apps/products.js";
+import { client } from "./utils/db.js";
 
 const app = express();
 const port = 4001;
+
+await client.connect();
 
 // `cors` เป็น Middleware ที่ทำให้ Client ใดๆ ตามที่กำหนด
 // สามารถสร้าง Request มาหา Server เราได้
